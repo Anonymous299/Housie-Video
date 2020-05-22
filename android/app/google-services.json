@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "152122561527",
+    "firebase_url": "https://housie-7a94e.firebaseio.com",
+    "project_id": "housie-7a94e",
+    "storage_bucket": "housie-7a94e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152122561527:android:72961aaabb7d2d182194f2",
+        "android_client_info": {
+          "package_name": "com.trype.housie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152122561527-6a36ti1ecrm35ckj9q0b6f9n7gs74bpe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trype.housie",
+            "certificate_hash": "a7b23a88c68a4241414d212d1166a9e2bfb98b31"
+          }
+        },
+        {
+          "client_id": "152122561527-1n7p54q5cd3j8pr4bqcl2eq60c63586u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU4QTKMz4ZBnlyt4XsX0sNdV-APqhwXWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152122561527-1n7p54q5cd3j8pr4bqcl2eq60c63586u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

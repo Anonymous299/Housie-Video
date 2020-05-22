@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>152122561527-pgn68pjihvvsah24ks0veuboeb7uvp39.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.152122561527-pgn68pjihvvsah24ks0veuboeb7uvp39</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>152122561527-6a36ti1ecrm35ckj9q0b6f9n7gs74bpe.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAP6YiLv0waaR8A1pKkATqU0CQpVybeWlU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>152122561527</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.trype.housie</string>
+	<key>PROJECT_ID</key>
+	<string>housie-7a94e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>housie-7a94e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:152122561527:ios:4d75c0980562ed0e2194f2</string>
+	<key>DATABASE_URL</key>
+	<string>https://housie-7a94e.firebaseio.com</string>
+</dict>
+</plist>
