@@ -1,17 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:housie/player_data.dart';
 //TODO clean this class
 class Ticket extends StatefulWidget{
   final List<List<String>> gridState;
   final List<List<String>> ogGridState;
-  final bool checking;
-  final bool homePage;
   Ticket({
     @required this.gridState,
     @required this.ogGridState,
-    this.checking = false,
-    this.homePage = false,
   }) :  assert(gridState != null);
 
   _TicketState createState() => _TicketState();
@@ -25,16 +20,15 @@ class _TicketState extends State<Ticket>{
   Widget _buildTicketBody(){
     const int gridStateBreadth = 9;
     const int gridStateLength = 3;
-    return widget.gridState.isEmpty ? Container(height: 0.0,) : Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(0),
-      height: widget.homePage ? MediaQuery.of(context).size.width/9*4 : MediaQuery.of(context).size.height * 0.4,
-          child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: gridStateBreadth),
-            itemBuilder: _buildGridItems,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: gridStateBreadth * gridStateLength,
+    return Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.2,
+          child:  Center(
+            child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: gridStateBreadth),
+              itemBuilder: _buildGridItems,
+              itemCount: gridStateBreadth * gridStateLength,
+            ),
           ),
-
 
         );
 
@@ -45,18 +39,16 @@ class _TicketState extends State<Ticket>{
     int y = (index % gridStateBreadth);
     return GestureDetector(
       onTap: (){
-        if(widget.gridState[x][y] == '' || widget.checking) {
+        if(widget.gridState[x][y] == '') {
 
           return;
         }
         if(widget.gridState[x][y] == '*'){
-          SETTINGS.saveTicket();
           setState(() {
             widget.gridState[x][y] = widget.ogGridState[x][y];
           });
         }
         else {
-          SETTINGS.saveTicket();
           setState(() {
             widget.gridState[x][y] = "*";
           });
@@ -66,7 +58,7 @@ class _TicketState extends State<Ticket>{
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black, width: 2.0),
-            color: widget.checking ? widget.gridState[x][y] == "*" ? Colors.greenAccent : Colors.white : Colors.white,
+            color: Colors.white,
           ),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
@@ -86,7 +78,7 @@ class _TicketState extends State<Ticket>{
       return Stack(
         children: <Widget>[
 
-          !widget.checking ? Icon(Icons.clear, size: constraints.maxWidth,) : Container(height:0.0),
+          Icon(Icons.clear, size: constraints.maxWidth,),
           Center(
             child: Text(widget.ogGridState[x][y], style: TextStyle(
               fontSize: constraints.maxWidth/2,

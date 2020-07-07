@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:housie/HomeScreen.dart';
-import 'package:housie/call.dart';
-import 'package:housie/game_session.dart';
+import 'package:housiiee/HomeScreen.dart';
+import 'package:housiiee/game_session.dart';
 
 final GlobalKey scaffoldKey = new GlobalKey();
 void main() {
@@ -16,7 +15,6 @@ class MyApp extends StatelessWidget{
       routes: {
         '/': (context) => HomeScreen(),
         '/gameSession': (context) => GameSession(),
-        '/callPage': (context) => CallPage(),
       },
     );
   }
