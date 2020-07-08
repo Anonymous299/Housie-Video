@@ -24,12 +24,11 @@ class _InstructionsState extends State<InstructionsPage>{
         text: TextSpan(
           text: '',
           style: TextStyle(fontSize: MediaQuery.of(context).size.width/13,
-              color: Colors.black,
-              fontFamily: "Paint Stroke"),
+              color: Colors.black,),
           children: <TextSpan>[
-            TextSpan(text: '  How To Play\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
+            TextSpan(text: '  How To Play\n\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
             TextSpan(text: '  Objective: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
-            TextSpan(text: '''Strike out numbers as they are called out such that you become eligible to win a prize.\nGame ends when: All prizes are claimed.\n•	Users have to pay attention to numbers as they get called out and as soon as the numbers are called out in a particular sequence, making them eligible for a prize, claim your prize using the following sequence: Prize -> Name of Prize you have Won\n\n'''),
+            TextSpan(text: '''\n\n  Strike out numbers as they are called out such that you become eligible to win a prize.\n\nGame ends when: All prizes are claimed.\n\n•	Users have to pay attention to numbers as they get called out and as soon as the numbers are called out in a particular sequence, making them eligible for a prize, claim your prize using the following sequence:\n\n Prize -> Name of Prize you have Won\n\n'''),
             TextSpan(text: '    Swipe left or right for other instructions', style: TextStyle(fontFamily: "Ariel", fontSize: MediaQuery.of(context).size.width/20))
           ],
         ),
@@ -43,26 +42,26 @@ class _InstructionsState extends State<InstructionsPage>{
           text: '',
           style: TextStyle(fontSize: MediaQuery.of(context).size.width/13,
               color: Colors.black,
-              fontFamily: "Paint Stroke"),
+              ),
           children: <TextSpan>[
-            TextSpan(text: '  To Start The Game\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
-            TextSpan(text: '''•	Click on Play button on the home screen.\n•	The button will not work if you have less than 100 coins (i.e. the price of a single ticket)\n•	To earn more coins, you may watch an ad.\n•	If you are going to host the game, you have two sets of options: Video/No Video:
+            TextSpan(text: '  To Start The Game\n\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/10)),
+            TextSpan(text: '''\n\n•	Click on Play button on the home screen.\n\n•	The button will not work if you have less than 100 coins (i.e. the price of a single ticket)\n\n•	To earn more coins, you may watch an ad.\n\n•	If you are going to host the game, you have two sets of options: Video/No Video:
 '''),
             TextSpan(text: '  Video: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
             TextSpan(text: ''' For a game where players are not playing together in the same place, the host can use the video option which makes the game interactive as the users can enjoy the live video call while being part of the game session.'''),
-            TextSpan(text: '\n  No Video: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
+            TextSpan(text: '\n\n  No Video: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
             TextSpan(text: ''' When all users are playing together in the same room, use this option for system generated tickets and convenient hosting experience.'''),
-            TextSpan(text: '\n  Number of Players(for video): ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
-            TextSpan(text: '\n  Less than 15: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '\n\n  Number of Players(for video): ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
+            TextSpan(text: '\n\n  Less than 15: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''If the number of phones playing is less than 15, the host can select this option and the game is played with a seamless video call for all players. Users from the same place can access using one phone since there is an option of multiple tickets.'''),
-            TextSpan(text: '\n  More than 15: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
-            TextSpan(text: '''Choose this option when playing with more than 15 people.\n  With audio: Every users voice can be heard with this option. There is no video during the game session.\n  Without audio: Only host’s video and voice will be streamed to all users.\n•	Once the host selects the appropriate option and starts the game, a game code gets created which the host can share with all players using any messaging platform. 
+            TextSpan(text: '\n\n  More than 15: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '''Choose this option when playing with more than 15 people.\n\n  With audio: Every users voice can be heard with this option. There is no video during the game session.\n\n  Without audio: Only host’s video and voice will be streamed to all users.\n\n•	Once the host selects the appropriate option and starts the game, a game code gets created which the host can share with all players using any messaging platform. 
 '''),
-            TextSpan(text: '\n  How to join: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
-            TextSpan(text: '''\n•	Once the host selects the appropriate option and starts the game, a game code gets created which the host can share with all players using any messaging platform. Enter this code in the appropriate field provided under the "Join Game" heading.'''),
+            TextSpan(text: '\n\n  How to join: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '''\n\n•	Once the host selects the appropriate option and starts the game, a game code gets created which the host can share with all players using any messaging platform. Enter this code in the appropriate field provided under the "Join Game" heading.'''),
 
 
-            TextSpan(text: '\n    Swipe left or right for other instructions', style: TextStyle(fontFamily: "Ariel", fontSize: MediaQuery.of(context).size.width/20)),
+            TextSpan(text: '\n\n    Swipe left or right for other instructions', style: TextStyle(fontFamily: "Ariel", fontSize: MediaQuery.of(context).size.width/20)),
           ],
         ),
       ),
@@ -72,26 +71,26 @@ class _InstructionsState extends State<InstructionsPage>{
   Widget _settingsInstruction(){
     return SingleChildScrollView(
       child: RichText(
+
         text: TextSpan(
           text: '',
           style: TextStyle(fontSize: MediaQuery.of(context).size.width/13,
-              color: Colors.black,
-              fontFamily: "Paint Stroke"),
+              color: Colors.black,),
           children: <TextSpan>[
-            TextSpan(text: '  Game Settings\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
+            TextSpan(text: '  Game Settings\n\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
             TextSpan(text: ' Automatic Generating of Numbers: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''The host will not need to press the “Generate Number” button every time and a number gets automatically generated at a fixed interval of time set by the host. The host can pause or play the generation and can also turn this function on or off.'''),
-            TextSpan(text: '\n Will Host Play: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '\n\n Will Host Play: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''If the host is not playing the game then he/she can constantly see the game board. If the host is playing the game, then the game board automatically becomes visible to all users after every 20 numbers for a period of 20 seconds.'''),
-            TextSpan(text: '\n Allow Multiple Prizes on Same Ticket: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '\n\n Allow Multiple Prizes on Same Ticket: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''This setting by the host decided whether or not a person can claim more than one prize on the same ticket.'''),
-            TextSpan(text: '\n NUMBER OF TICKETS: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '\n\n Number of Tickets: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''Choose the number of tickets you want to play with during a game'''),
-            TextSpan(text: '\n Prizes: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
-            TextSpan(text: '''  Shows a list of prizes enabled for the current game\n Add Prize: Lets you add a custom prize. For more information look under "Prize Settings".\n  Delete Prize: Delete a prize from the current game.'''),
-            TextSpan(text: '\n Mute/Unmute User: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '\n\n Prizes: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '''  Shows a list of prizes enabled for the current game\n\n Add Prize: Lets you add a custom prize. For more information look under "Prize Settings".\n\n  Delete Prize: Delete a prize from the current game.'''),
+            TextSpan(text: '\n\n Mute/Unmute User: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''  Allows host to mute/unmute a user in the game.'''),
-            TextSpan(text: '\n Remove User: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
+            TextSpan(text: '\n\n Remove User: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/12)),
             TextSpan(text: '''  Allows host to remove a user from the game.'''),
 
 
@@ -106,25 +105,25 @@ class _InstructionsState extends State<InstructionsPage>{
 
       return SingleChildScrollView(
         child: RichText(
+
           text: TextSpan(
             text: '',
             style: TextStyle(fontSize: MediaQuery.of(context).size.width/13,
-                color: Colors.black,
-                fontFamily: "Paint Stroke"),
+                color: Colors.black,),
             children: <TextSpan>[
-              TextSpan(text: '  Prizes\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
+              TextSpan(text: '  Prizes\n\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
 
-              TextSpan(text: '''•	If the prize is system generated, the app will check the prize and declare whether or not the user has won the prize.\n•	If the prize is custom generated by the host, the ticket on which the prize is won gets displayed on everyone’s screen and the host can either mark the claim as correct or incorrect.\n•	The'''),
+              TextSpan(text: '''•	If the prize is system generated, the app will check the prize and declare whether or not the user has won the prize.\n\n•	If the prize is custom generated by the host, the ticket on which the prize is won gets displayed on everyone’s screen and the host can either mark the claim as correct or incorrect.\n\n•	The'''),
               TextSpan(text: '  default ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
-              TextSpan(text: ''' prizes are:\n'''),
+              TextSpan(text: ''' prizes are:\n\n'''),
               TextSpan(text: '  Four Corners: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
               TextSpan(text: '''If the first and last numbers of the first and last rows are announced, you eligible for this prize.'''),
-              TextSpan(text: '\n  FAST 5: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
+              TextSpan(text: '\n\n  FAST 5: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
               TextSpan(text: '''The first player to strike off 5 numbers off his ticket wins this prize.
 First Row: When all the numbers from the first row are called out and marked, you win this prize.'''),
-              TextSpan(text: '\n  Row: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
+              TextSpan(text: '\n\n  Row: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
               TextSpan(text: '''The first, second or third row can be claimed when all the numbers from the first, second or third row respectively are called out and marked.'''),
-              TextSpan(text: '\n  Full House: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
+              TextSpan(text: '\n\n  Full House: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
               TextSpan(text: '''When all the numbers from your ticket are called out and marked, you win this prize.'''),
               TextSpan(text: '\n\n    Swipe left or right for other instructions', style: TextStyle(fontFamily: "Ariel", fontSize: MediaQuery.of(context).size.width/20))
             ],
@@ -136,15 +135,15 @@ First Row: When all the numbers from the first row are called out and marked, yo
   Widget _pSettingsInstructions(){
     return SingleChildScrollView(
       child: RichText(
+
         text: TextSpan(
           text: '',
           style: TextStyle(fontSize: MediaQuery.of(context).size.width/13,
-              color: Colors.black,
-              fontFamily: "Paint Stroke"),
+              color: Colors.black,),
           children: <TextSpan>[
-            TextSpan(text: ' Prize Settings\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
+            TextSpan(text: ' Prize Settings\n\n', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/8)),
 //            TextSpan(text: '  Objective: ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width/11)),
-            TextSpan(text: '''•	The prize values are set as a percentage of the total coin value which is pooled by all players playing the game (each ticket = 100 coins).\n•	The host can view and change these values in the option known as “Show Prize Values”\n•	The host can also add a custom prize to the game using “Add Prize” option where the user can give a name and description to the prize. In this option, the host can also choose from the list of previously added custom prizes using the option “Choose from Previous Prizes”.\n•	Similarly, the host can also delete a prize from the list that he/she may not want.\n•	These prize settings can be made any time before the game starts.'''),
+            TextSpan(text: '''•	The prize values are set as a percentage of the total coin value which is pooled by all players playing the game (each ticket = 100 coins).\n\n•	The host can view and change these values in the option known as “Show Prize Values”\n\n•	The host can also add a custom prize to the game using “Add Prize” option where the user can give a name and description to the prize. In this option, the host can also choose from the list of previously added custom prizes using the option “Choose from Previous Prizes”.\n\n•	Similarly, the host can also delete a prize from the list that he/she may not want.\n\n•	These prize settings can be made any time before the game starts.'''),
 
             TextSpan(text: '\n\n    Swipe left or right for other instructions', style: TextStyle(fontFamily: "Ariel", fontSize: MediaQuery.of(context).size.width/20))
           ],

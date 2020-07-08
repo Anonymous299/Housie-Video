@@ -23,17 +23,16 @@ class _BoardState extends State<Board>{
   Widget _buildTicketBody(){
     const int gridStateBreadth = 10;
     const int gridStateLength = 9;
-    return widget.gridState.isEmpty ? Container(height: 0.0,) : Container(
-      width: MediaQuery.of(context).size.width,
-      height: widget.large ? MediaQuery.of(context).size.height * 0.7 : MediaQuery.of(context).size.height,
-      child:  Center(
-        child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: gridStateBreadth),
-          itemBuilder: _buildGridItems,
-          itemCount: gridStateBreadth * gridStateLength,
-        ),
-      ),
+    double height = widget.large ? MediaQuery.of(context).size.height*0.7 : MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height/9*4 + 90);
+    return widget.gridState.isEmpty ? Container(height: 0.0,) :
+        Container(
+          height: height,
+          child:GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: gridStateBreadth),
+            itemBuilder: _buildGridItems,
+            itemCount: gridStateBreadth * gridStateLength,
+          ) ,
+        );
 
-    );
 
   }
   Widget _buildGridItems(BuildContext context, int index){

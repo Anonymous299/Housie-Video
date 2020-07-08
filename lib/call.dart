@@ -45,6 +45,7 @@ class _CallPageState extends State<CallPage> with TickerProviderStateMixin{
 
   int time;
   bool noGeneration = false;
+  bool startedDisplayTimer = false;
   bool showNumber = false;
   bool showPrizes = true;
   bool switched = false;
@@ -269,6 +270,14 @@ class _CallPageState extends State<CallPage> with TickerProviderStateMixin{
     bool started = snapshot.value['st'] == "started" ? true : false;
     if(started){
       if(snapshot.value['wN'] == -1){
+        if(SETTINGS.tickets[0][0].isEmpty){
+          for(int i=0;i<SETTINGS.numTickets;i++){
+            SETTINGS.ticketList = ListGenerator.generateTicketList();
+            SETTINGS.ogTicketList = ListGenerator.getOgList();
+            _addTicketToList();
+          }
+          setState(() {});
+        }
         if(HOST && AUTOMATIC && !isPaused && !ended && !displayingBoard)
           _resumeAutomaticTimer();
         showPrizes = false;
@@ -2790,33 +2799,40 @@ class _CallPageState extends State<CallPage> with TickerProviderStateMixin{
   Widget _displayNumberBoard(){
 
     if(displayBoard){
-        Timer(new Duration(seconds: 15), () {
-          if (!AT_CALL)
-            return;
-          setState(() {
-            if((!HOST || HOST_PLAY) && !showConfirmation && !ended)
-              displayBoard = false;
-            if (HOST && AUTOMATIC && !isPaused && displayingBoard && !ended)
-              _resumeAutomaticTimer();
-            displayingBoard = false;
-          });
-        });
+        if(displayingBoard) {
+          if (!startedDisplayTimer) {
+            startedDisplayTimer = true;
+            Timer(new Duration(seconds: 15), () {
+              if (!AT_CALL)
+                return;
+              setState(() {
+                if ((!HOST || HOST_PLAY) && !showConfirmation && !ended)
+                  displayBoard = false;
+                if (HOST && AUTOMATIC && !isPaused && displayingBoard && !ended)
+                  _resumeAutomaticTimer();
+                displayingBoard = false;
+                startedDisplayTimer = false;
+              });
+            });
+          }
+        }
 
-      return ((!HOST || HOST_PLAY) && !showConfirmation) ? Container(
-          alignment: Alignment.topCenter,
-          child: SafeArea(
-            child: ListView(
-              shrinkWrap: true,
-              children: <Widget>[
-                Center(child: Container(
-                  color: Colors.white,
-                  child: Text("Number Board",),
-                )),
-                Board(gridState: SETTINGS.boardNumList, ogGridState: SETTINGS.ogBoardNumList),
-              ],
-            ),
-          )
-        ) : SafeArea(
+      return ((!HOST || HOST_PLAY) && !showConfirmation) ?
+
+                Container(
+//                  height: MediaQuery.of(context).size.height - MediaQuery.of(context).size.height/9*4 + 72,
+                  child: ListView(
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    Center(child: Container(
+                      color: Colors.white,
+                      child: Text("Number Board",),
+                    )),
+                    Board(gridState: SETTINGS.boardNumList, ogGridState: SETTINGS.ogBoardNumList),
+                  ],
+                ),
+              )
+         : SafeArea(
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: Container(alignment: Alignment.topCenter,
@@ -3200,16 +3216,28 @@ class _CallPageState extends State<CallPage> with TickerProviderStateMixin{
       if(AT_CALL)
         ads.showFullScreenAd(state: this);
     });
-    await  _getWinners(winners);
-    winners.forEach((element) {
-      String name = element.split(":")[1];
-      if(name == PLAYER.username){
-        String prizeName = element.split(":")[0];
-        Prize p = _absolutePrizeList.firstWhere((element) => element.name == prizeName);
-        COINS += (SETTINGS.playerList.length*TICKET_PRICE*p.value/100).ceil();
-        SETTINGS.saveCoins();
-      }
-    });
+    try {
+      await _getWinners(winners);
+      winners.forEach((element) {
+        String name = element.split(":")[1];
+        if (name == PLAYER.username) {
+          String prizeName = element.split(":")[0];
+          Prize p = _absolutePrizeList.firstWhere((element) =>
+          element.name == prizeName);
+          COINS += (SETTINGS.playerList.length * TICKET_PRICE * p.value / 100)
+              .ceil();
+          try {
+            SETTINGS.saveCoins();
+          }
+          catch(error){
+
+          }
+        }
+      });
+    }
+    catch(error){
+
+    }
     setState(() {
       showWinners = true;
     });
@@ -3226,7 +3254,6 @@ class _CallPageState extends State<CallPage> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     if(!showNumber && SETTINGS.stop.isNotEmpty && HOST && !showConfirmation && !factoring)
       _factorClaims();
-
     return WillPopScope(
       onWillPop: showPrizes ? _closeShowPrize : !displayBoard ? _onBackPressed : _closeDisplayBoard,
       child: Scaffold(
